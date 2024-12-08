@@ -52,8 +52,8 @@ public class JourneyDetails extends JFrame {
         ));
         
         // Initialize buttons
-        searchButton = createStyledButton("Search", new Color(0, 102, 204));
-        clearButton = createStyledButton("Clear", new Color(128, 128, 128));
+        searchButton = createStyledButton("Search", new Color(0, 0, 255));
+        clearButton = createStyledButton("Clear", new Color(0, 0, 255));
         exportButton = createStyledButton("Export", new Color(0, 153, 51));
         
         // Initialize table
@@ -69,7 +69,7 @@ public class JourneyDetails extends JFrame {
         JButton button = new JButton(text);
         button.setFont(new Font("Arial", Font.BOLD, 12));
         button.setBackground(backgroundColor);
-        button.setForeground(Color.WHITE);
+        button.setForeground(Color.BLUE);
         button.setFocusPainted(false);
         button.setBorder(BorderFactory.createEmptyBorder(8, 15, 8, 15));
         button.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -112,7 +112,7 @@ public class JourneyDetails extends JFrame {
     private void setupListeners() {
         searchButton.addActionListener(e -> searchJourneyDetails());
         clearButton.addActionListener(e -> clearForm());
-//        exportButton.addActionListener(e -> exportToExcel());
+        exportButton.addActionListener(e -> exportToExcel());
         
         // Add key listener for Enter key
         pnrTextField.addKeyListener(new KeyAdapter() {
@@ -200,10 +200,10 @@ public class JourneyDetails extends JFrame {
         pnrTextField.requestFocus();
     }
     
-//    private void exportToExcel() {
-//        // TODO: Implement export functionality
-//        showInfo("Export", "Export functionality will be available in the next update.");
-//    }
+    private void exportToExcel() {
+        // TODO: Implement export functionality
+        showInfo("Export", "Export functionality will be available in the next update.");
+    }
     
     private void showError(String title, String message) {
         JOptionPane.showMessageDialog(this, message, title, JOptionPane.ERROR_MESSAGE);
