@@ -7,7 +7,7 @@ import java.awt.event.*;
 import java.sql.*;
 
 public class JourneyDetails extends JFrame {
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/airlinemanagementsystem";
+    private static final String DB_URL = "jdbc:mysql://127.0.0.1:3306/airlinemanagementsytem";
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "yash";
     
@@ -69,7 +69,7 @@ public class JourneyDetails extends JFrame {
         JButton button = new JButton(text);
         button.setFont(new Font("Arial", Font.BOLD, 12));
         button.setBackground(backgroundColor);
-        button.setForeground(Color.BLUE);
+        button.setForeground(Color.WHITE);
         button.setFocusPainted(false);
         button.setBorder(BorderFactory.createEmptyBorder(8, 15, 8, 15));
         button.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -112,7 +112,7 @@ public class JourneyDetails extends JFrame {
     private void setupListeners() {
         searchButton.addActionListener(e -> searchJourneyDetails());
         clearButton.addActionListener(e -> clearForm());
-        exportButton.addActionListener(e -> exportToExcel());
+//        exportButton.addActionListener(e -> exportToExcel());
         
         // Add key listener for Enter key
         pnrTextField.addKeyListener(new KeyAdapter() {
@@ -200,10 +200,10 @@ public class JourneyDetails extends JFrame {
         pnrTextField.requestFocus();
     }
     
-    private void exportToExcel() {
-        // TODO: Implement export functionality
-        showInfo("Export", "Export functionality will be available in the next update.");
-    }
+//    private void exportToExcel() {
+//        // TODO: Implement export functionality
+//        showInfo("Export", "Export functionality will be available in the next update.");
+//    }
     
     private void showError(String title, String message) {
         JOptionPane.showMessageDialog(this, message, title, JOptionPane.ERROR_MESSAGE);
