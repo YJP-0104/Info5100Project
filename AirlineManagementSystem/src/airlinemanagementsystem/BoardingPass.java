@@ -47,14 +47,14 @@ public class BoardingPass extends JFrame implements ActionListener {
         fetchButton = new JButton("Fetch");
         fetchButton.setBounds(450, 120, 100, 25);
         fetchButton.setBackground(new Color(34, 139, 34)); // Green
-        fetchButton.setForeground(Color.WHITE);
+        fetchButton.setForeground(Color.BLUE);
         fetchButton.addActionListener(this);
         add(fetchButton);
 
         clearButton = new JButton("Clear");
         clearButton.setBounds(570, 120, 100, 25);
         clearButton.setBackground(new Color(220, 20, 60)); // Red
-        clearButton.setForeground(Color.WHITE);
+        clearButton.setForeground(Color.BLUE);
         clearButton.addActionListener(this);
         add(clearButton);
 

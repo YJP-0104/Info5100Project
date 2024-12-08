@@ -7,19 +7,23 @@ import java.awt.*;
 import java.sql.*;
 
 public class FlightInfo extends JFrame {
-    private static final String DB_URL = "jdbc:mysql://127.0.0.1:3306/airlinemanagementsytem";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/airlinemanagementsystem";
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "yash";
     
     private JTable flightTable;
-    private DefaultTableModel tableModel;
+    private JTable reservationTable;
+    private DefaultTableModel flightTableModel;
+    private DefaultTableModel reservationTableModel;
     private JLabel titleLabel;
     private JPanel mainPanel;
+    private JTabbedPane tabbedPane;
     
     public FlightInfo() {
         setTitle("Flight Information System");
         setupUI();
         loadFlightData();
+        loadReservationData();
     }
     
     private void setupUI() {
@@ -34,42 +38,58 @@ public class FlightInfo extends JFrame {
         titleLabel.setForeground(new Color(51, 51, 51));
         titleLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 20, 0));
         
-        // Table setup
-        flightTable = new JTable();
-        tableModel = new DefaultTableModel() {
+        // Tabbed Pane setup
+        tabbedPane = new JTabbedPane();
+        
+        // Flight Table setup
+        flightTable = createStyledTable();
+        flightTableModel = (DefaultTableModel) flightTable.getModel();
+        JScrollPane flightScrollPane = new JScrollPane(flightTable);
+        
+        // Reservation Table setup
+        reservationTable = createStyledTable();
+        reservationTableModel = (DefaultTableModel) reservationTable.getModel();
+        JScrollPane reservationScrollPane = new JScrollPane(reservationTable);
+        
+        // Add tabs
+        tabbedPane.addTab("Flight Details", flightScrollPane);
+        tabbedPane.addTab("Reservation Details", reservationScrollPane);
+        
+        // Add components to main panel
+        mainPanel.add(titleLabel, BorderLayout.NORTH);
+        mainPanel.add(tabbedPane, BorderLayout.CENTER);
+        
+        // Frame setup
+        setContentPane(mainPanel);
+        setSize(1200, 700);
+        setLocationRelativeTo(null); // Center on screen
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }
+    
+    private JTable createStyledTable() {
+        JTable table = new JTable();
+        DefaultTableModel model = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false; // Make table read-only
             }
         };
-        flightTable.setModel(tableModel);
+        table.setModel(model);
         
         // Table styling
-        flightTable.setRowHeight(25);
-        flightTable.setFont(new Font("Arial", Font.PLAIN, 14));
-        flightTable.setGridColor(new Color(200, 200, 200));
-        flightTable.setShowGrid(true);
-        flightTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+        table.setRowHeight(25);
+        table.setFont(new Font("Arial", Font.PLAIN, 14));
+        table.setGridColor(new Color(200, 200, 200));
+        table.setShowGrid(true);
+        table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
         
         // Table header styling
-        JTableHeader header = flightTable.getTableHeader();
+        JTableHeader header = table.getTableHeader();
         header.setFont(new Font("Arial", Font.BOLD, 14));
         header.setBackground(new Color(51, 51, 51));
         header.setForeground(Color.WHITE);
         
-        // Scroll pane setup
-        JScrollPane scrollPane = new JScrollPane(flightTable);
-        scrollPane.setBorder(BorderFactory.createLineBorder(new Color(200, 200, 200)));
-        
-        // Add components to main panel
-        mainPanel.add(titleLabel, BorderLayout.NORTH);
-        mainPanel.add(scrollPane, BorderLayout.CENTER);
-        
-        // Frame setup
-        setContentPane(mainPanel);
-        setSize(1000, 600);
-        setLocationRelativeTo(null); // Center on screen
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        return table;
     }
     
     private void loadFlightData() {
@@ -82,12 +102,12 @@ public class FlightInfo extends JFrame {
             int columnCount = metaData.getColumnCount();
             
             // Clear existing columns and data
-            tableModel.setColumnCount(0);
-            tableModel.setRowCount(0);
+            flightTableModel.setColumnCount(0);
+            flightTableModel.setRowCount(0);
             
             // Add columns
             for (int i = 1; i <= columnCount; i++) {
-                tableModel.addColumn(formatColumnName(metaData.getColumnName(i)));
+                flightTableModel.addColumn(formatColumnName(metaData.getColumnName(i)));
             }
             
             // Add rows
@@ -96,11 +116,44 @@ public class FlightInfo extends JFrame {
                 for (int i = 1; i <= columnCount; i++) {
                     rowData[i - 1] = resultSet.getObject(i);
                 }
-                tableModel.addRow(rowData);
+                flightTableModel.addRow(rowData);
             }
             
         } catch (SQLException e) {
             showErrorDialog("Database Error", "Failed to load flight data: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
+    private void loadReservationData() {
+        try (Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery("SELECT * FROM reservation")) {
+            
+            // Get metadata and set up columns
+            ResultSetMetaData metaData = resultSet.getMetaData();
+            int columnCount = metaData.getColumnCount();
+            
+            // Clear existing columns and data
+            reservationTableModel.setColumnCount(0);
+            reservationTableModel.setRowCount(0);
+            
+            // Add columns
+            for (int i = 1; i <= columnCount; i++) {
+                reservationTableModel.addColumn(formatColumnName(metaData.getColumnName(i)));
+            }
+            
+            // Add rows
+            while (resultSet.next()) {
+                Object[] rowData = new Object[columnCount];
+                for (int i = 1; i <= columnCount; i++) {
+                    rowData[i - 1] = resultSet.getObject(i);
+                }
+                reservationTableModel.addRow(rowData);
+            }
+            
+        } catch (SQLException e) {
+            showErrorDialog("Database Error", "Failed to load reservation data: " + e.getMessage());
             e.printStackTrace();
         }
     }

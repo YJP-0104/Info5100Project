@@ -7,7 +7,7 @@ import java.awt.event.*;
 import java.sql.*;
 
 public class Login extends JFrame {
-    private static final String TITLE = "Air India - Login";
+    private static final String TITLE = "CANADA AIR - Login";
     private static final Color PRIMARY_COLOR = new Color(0, 102, 204);
     private static final Color SECONDARY_COLOR = new Color(51, 51, 51);
     
@@ -40,7 +40,7 @@ public class Login extends JFrame {
         mainPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         
         // Create logo/header
-        JLabel headerLabel = new JLabel("Welcome to Air India", SwingConstants.CENTER);
+        JLabel headerLabel = new JLabel("Welcome to CANADA AIR", SwingConstants.CENTER);
         headerLabel.setFont(new Font("Arial", Font.BOLD, 24));
         headerLabel.setForeground(PRIMARY_COLOR);
         headerLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 20, 0));
@@ -77,7 +77,7 @@ public class Login extends JFrame {
     private JButton createStyledButton(String text, Color backgroundColor) {
         JButton button = new JButton(text);
         button.setFont(new Font("Arial", Font.BOLD, 14));
-        button.setForeground(Color.WHITE);
+        button.setForeground(Color.BLUE);
         button.setBackground(backgroundColor);
         button.setFocusPainted(false);
         button.setBorder(BorderFactory.createEmptyBorder(8, 15, 8, 15));
@@ -116,7 +116,7 @@ public class Login extends JFrame {
         formPanel.add(buttonPanel, gbc);
         
         // Add components to main panel
-        mainPanel.add(new JLabel("Air India Login", SwingConstants.CENTER), BorderLayout.NORTH);
+        mainPanel.add(new JLabel("CANADA AIR Login", SwingConstants.CENTER), BorderLayout.NORTH);
         mainPanel.add(formPanel, BorderLayout.CENTER);
         
         setContentPane(mainPanel);

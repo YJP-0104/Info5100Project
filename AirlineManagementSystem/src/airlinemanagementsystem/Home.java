@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Home extends JFrame implements ActionListener {
-    private static final String AIRLINE_NAME = "AIR INDIA";
+    private static final String AIRLINE_NAME = "CANADA AIR";
     private static final String APP_TITLE = "Airline Management System";
     private static final Color PRIMARY_COLOR = new Color(0, 102, 204);
     private static final Color SECONDARY_COLOR = new Color(51, 51, 51);
@@ -20,7 +20,6 @@ public class Home extends JFrame implements ActionListener {
         createHeader();
         createNavigationMenu();
         createFooter();
-//        setupBackgroundImage();
         finalizeFrame();
     }
     
@@ -52,7 +51,7 @@ public class Home extends JFrame implements ActionListener {
         
         // Details Menu
         JMenu detailsMenu = createMenu("AIRLINE SERVICES", "Arial", 16);
-        addMenuItem(detailsMenu, "Flight Details", "View all flight information");
+        JMenuItem flightDetailsItem = addMenuItem(detailsMenu, "Flight Details", "View all flight information");
         addMenuItem(detailsMenu, "Add Customer Details", "Register new customer");
         addMenuItem(detailsMenu, "Book Flight", "Book a new flight ticket");
         addMenuItem(detailsMenu, "Journey Details", "View journey information");
@@ -74,13 +73,14 @@ public class Home extends JFrame implements ActionListener {
         return menu;
     }
     
-    private void addMenuItem(JMenu menu, String title, String tooltip) {
+    private JMenuItem addMenuItem(JMenu menu, String title, String tooltip) {
         JMenuItem menuItem = new JMenuItem(title);
         menuItem.setFont(new Font("Arial", Font.PLAIN, 14));
         menuItem.setToolTipText(tooltip);
         menuItem.addActionListener(this);
         menuItem.setBackground(Color.WHITE);
         menu.add(menuItem);
+        return menuItem;
     }
     
     private void createFooter() {
@@ -98,20 +98,6 @@ public class Home extends JFrame implements ActionListener {
         mainPanel.add(footerPanel);
     }
     
-//    private void setupBackgroundImage() {
-//        try {
-//            ImageIcon backgroundIcon = new ImageIcon(
-//                ClassLoader.getSystemResource("airlinemanagementsystem/icons/airplane.jpg")
-//            );
-//            Image scaledImage = backgroundIcon.getImage().getScaledInstance(1600, 800, Image.SCALE_SMOOTH);
-//            JLabel backgroundLabel = new JLabel(new ImageIcon(scaledImage));
-//            backgroundLabel.setBounds(0, 120, 1600, 800);
-//            mainPanel.add(backgroundLabel);
-//        } catch (Exception e) {
-//            System.err.println("Background image could not be loaded: " + e.getMessage());
-//        }
-//    }
-    
     private void finalizeFrame() {
         setVisible(true);
     }
@@ -123,22 +109,34 @@ public class Home extends JFrame implements ActionListener {
         try {
             switch (command) {
                 case "Flight Details":
-                    new FlightInfo();
+                    SwingUtilities.invokeLater(() -> {
+                        new FlightInfo().setVisible(true);
+                    });
                     break;
                 case "Add Customer Details":
-                    new AddCustomer();
+                    SwingUtilities.invokeLater(() -> {
+                        new AddCustomer().setVisible(true);
+                    });
                     break;
                 case "Book Flight":
-                    new BookFlight();
+                    SwingUtilities.invokeLater(() -> {
+                        new BookFlight().setVisible(true);
+                    });
                     break;
                 case "Journey Details":
-                    new JourneyDetails();
+                    SwingUtilities.invokeLater(() -> {
+                        new JourneyDetails().setVisible(true);
+                    });
                     break;
                 case "Cancel Ticket":
-                    new Cancel();
+                    SwingUtilities.invokeLater(() -> {
+                        new Cancel().setVisible(true);
+                    });
                     break;
                 case "Boarding Pass":
-                    showFeatureUnderDevelopment();
+                    SwingUtilities.invokeLater(() -> {
+                        new BoardingPass().setVisible(true);
+                    });
                     break;
                 default:
                     showError("Invalid Option", "The selected option is not valid.");
@@ -147,15 +145,6 @@ public class Home extends JFrame implements ActionListener {
         } catch (Exception e) {
             showError("System Error", "An error occurred: " + e.getMessage());
         }
-    }
-    
-    private void showFeatureUnderDevelopment() {
-        JOptionPane.showMessageDialog(
-            this,
-            "This feature is currently under development.\nPlease check back later.",
-            "Feature Coming Soon",
-            JOptionPane.INFORMATION_MESSAGE
-        );
     }
     
     private void showError(String title, String message) {

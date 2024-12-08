@@ -42,7 +42,7 @@ public class BookFlight extends JFrame implements ActionListener {
         fetchUserButton = new JButton("Fetch User");
         fetchUserButton.setBounds(380, 80, 120, 25);
         fetchUserButton.setBackground(Color.BLACK);
-        fetchUserButton.setForeground(Color.WHITE);
+        fetchUserButton.setForeground(Color.BLUE);
         fetchUserButton.addActionListener(this);
         add(fetchUserButton);
 
@@ -69,7 +69,7 @@ public class BookFlight extends JFrame implements ActionListener {
         fetchFlightsButton = new JButton("Fetch Flights");
         fetchFlightsButton.setBounds(380, 380, 120, 25);
         fetchFlightsButton.setBackground(Color.BLACK);
-        fetchFlightsButton.setForeground(Color.WHITE);
+        fetchFlightsButton.setForeground(Color.BLUE);
         fetchFlightsButton.addActionListener(this);
         add(fetchFlightsButton);
 
@@ -89,7 +89,7 @@ public class BookFlight extends JFrame implements ActionListener {
         bookFlightButton = new JButton("Book Flight");
         bookFlightButton.setBounds(220, 580, 150, 30);
         bookFlightButton.setBackground(Color.BLACK);
-        bookFlightButton.setForeground(Color.WHITE);
+        bookFlightButton.setForeground(Color.BLUE);
         bookFlightButton.addActionListener(this);
         add(bookFlightButton);
 
@@ -149,7 +149,7 @@ public class BookFlight extends JFrame implements ActionListener {
     private void fetchUserDetails() {
         String id = idTextField.getText();
         if (id.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Please enter Aadhar ID!");
+            JOptionPane.showMessageDialog(null, "Please enter  ID!");
             return;
         }
 

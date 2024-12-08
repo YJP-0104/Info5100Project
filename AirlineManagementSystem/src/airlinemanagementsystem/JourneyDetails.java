@@ -7,7 +7,7 @@ import java.awt.event.*;
 import java.sql.*;
 
 public class JourneyDetails extends JFrame {
-    private static final String DB_URL = "jdbc:mysql://127.0.0.1:3306/airlinemanagementsytem";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/airlinemanagementsystem";
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "yash";
     
@@ -20,7 +20,7 @@ public class JourneyDetails extends JFrame {
     private JPanel searchPanel;
     
     public JourneyDetails() {
-        setTitle("Journey Details - Air India");
+        setTitle("Journey Details - CANADA AIR");
         initializeComponents();
         setupLayout();
         setupListeners();
@@ -69,7 +69,7 @@ public class JourneyDetails extends JFrame {
         JButton button = new JButton(text);
         button.setFont(new Font("Arial", Font.BOLD, 12));
         button.setBackground(backgroundColor);
-        button.setForeground(Color.WHITE);
+        button.setForeground(Color.BLUE);
         button.setFocusPainted(false);
         button.setBorder(BorderFactory.createEmptyBorder(8, 15, 8, 15));
         button.setCursor(new Cursor(Cursor.HAND_CURSOR));

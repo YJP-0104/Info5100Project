@@ -44,7 +44,7 @@ public class Cancel extends JFrame implements ActionListener {
         gbc.gridx = 2;
         fetchButton = new JButton("Show Details");
         fetchButton.setBackground(new Color(25, 77, 77));
-        fetchButton.setForeground(Color.WHITE);
+        fetchButton.setForeground(Color.BLUE);
         fetchButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
         fetchButton.addActionListener(this);
         formPanel.add(fetchButton, gbc);
@@ -102,7 +102,7 @@ public class Cancel extends JFrame implements ActionListener {
 
         cancelButton = new JButton("Cancel Ticket");
         cancelButton.setBackground(new Color(204, 0, 0));
-        cancelButton.setForeground(Color.WHITE);
+        cancelButton.setForeground(Color.BLUE);
         cancelButton.setFont(new Font("Tahoma", Font.BOLD, 16));
         cancelButton.addActionListener(this);
         footerPanel.add(cancelButton);
