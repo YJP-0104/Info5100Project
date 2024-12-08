@@ -7,7 +7,7 @@ import java.awt.event.*;
 import java.sql.*;
 
 public class JourneyDetails extends JFrame {
-    private static final String DB_URL = "jdbc:mysql://127.0.0.1:3306/airlinemanagementsytem";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/airlinemanagementsystem";
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "yash";
     
@@ -15,7 +15,6 @@ public class JourneyDetails extends JFrame {
     private JTable journeyTable;
     private JButton searchButton;
     private JButton clearButton;
-    private JButton exportButton;
     private JPanel mainPanel;
     private JPanel searchPanel;
     
@@ -54,7 +53,6 @@ public class JourneyDetails extends JFrame {
         // Initialize buttons
         searchButton = createStyledButton("Search", new Color(0, 0, 255));
         clearButton = createStyledButton("Clear", new Color(0, 0, 255));
-        exportButton = createStyledButton("Export", new Color(0, 153, 51));
         
         // Initialize table
         journeyTable = new JTable();
@@ -82,7 +80,6 @@ public class JourneyDetails extends JFrame {
         searchPanel.add(pnrTextField);
         searchPanel.add(searchButton);
         searchPanel.add(clearButton);
-        searchPanel.add(exportButton);
         
         // Create table panel
         JScrollPane tableScrollPane = new JScrollPane(journeyTable);
@@ -112,7 +109,6 @@ public class JourneyDetails extends JFrame {
     private void setupListeners() {
         searchButton.addActionListener(e -> searchJourneyDetails());
         clearButton.addActionListener(e -> clearForm());
-        exportButton.addActionListener(e -> exportToExcel());
         
         // Add key listener for Enter key
         pnrTextField.addKeyListener(new KeyAdapter() {
@@ -200,21 +196,12 @@ public class JourneyDetails extends JFrame {
         pnrTextField.requestFocus();
     }
     
-    private void exportToExcel() {
-        // TODO: Implement export functionality
-        showInfo("Export", "Export functionality will be available in the next update.");
-    }
-    
     private void showError(String title, String message) {
         JOptionPane.showMessageDialog(this, message, title, JOptionPane.ERROR_MESSAGE);
     }
     
     private void showWarning(String title, String message) {
         JOptionPane.showMessageDialog(this, message, title, JOptionPane.WARNING_MESSAGE);
-    }
-    
-    private void showInfo(String title, String message) {
-        JOptionPane.showMessageDialog(this, message, title, JOptionPane.INFORMATION_MESSAGE);
     }
     
     private void finalizeFrame() {
