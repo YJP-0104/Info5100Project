@@ -175,8 +175,8 @@ public class Home extends JFrame implements ActionListener {
     // Load the image
     ImageIcon icon = new ImageIcon("E:\\\\NEU LABS\\\\Info5100\\\\Project\\\\info5100Project\\\\AirlineManagementSystem\\\\src\\\\airlinemanagementsystem\\\\logo.jpg"); // Replace with the actual path to your image
     
-    int newWidth = 500;  // Desired width
-    int newHeight = 400; // Desired height
+    int newWidth = 400;  // Desired width
+    int newHeight = 300; // Desired height
     Image scaledImage = icon.getImage().getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);
     ImageIcon resizedIcon = new ImageIcon(scaledImage);
 

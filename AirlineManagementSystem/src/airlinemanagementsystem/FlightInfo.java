@@ -29,6 +29,10 @@ public class FlightInfo extends JFrame {
     }
     
     private void setupUI() {
+        // Set font size globally
+        Font tabFont = new Font("Arial", Font.BOLD, 18);
+        UIManager.put("TabbedPane.font", tabFont);
+        
         // Main panel setup
         mainPanel = new JPanel(new BorderLayout(10, 10));
         mainPanel.setBackground(new Color(240, 240, 240));

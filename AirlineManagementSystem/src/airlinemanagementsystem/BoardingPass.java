@@ -140,7 +140,7 @@ public class BoardingPass extends JFrame implements ActionListener {
         setTitle("Boarding Pass");
         setSize(1000, 600);
         setLocation(300, 150);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
     }
 
