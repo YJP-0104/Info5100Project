@@ -7,9 +7,11 @@ import java.awt.*;
 import java.sql.*;
 
 public class FlightInfo extends JFrame {
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/airlinemanagementsystem";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/airlinemanagementsystem?useSSL=false";
     private static final String DB_USER = "root";
-    private static final String DB_PASSWORD = "yash";
+//    private static final String DB_PASSWORD = "yash";
+    private static final String DB_PASSWORD = "my-secret-pw";
+
     
     private JTable flightTable;
     private JTable reservationTable;
@@ -87,7 +89,7 @@ public class FlightInfo extends JFrame {
         JTableHeader header = table.getTableHeader();
         header.setFont(new Font("Arial", Font.BOLD, 14));
         header.setBackground(new Color(51, 51, 51));
-        header.setForeground(Color.WHITE);
+        header.setForeground(Color.BLACK);
         
         return table;
     }

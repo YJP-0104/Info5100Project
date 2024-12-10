@@ -69,7 +69,7 @@ public class Home extends JFrame implements ActionListener {
     private JMenu createMenu(String title, String fontName, int fontSize) {
         JMenu menu = new JMenu(title);
         menu.setFont(new Font(fontName, Font.BOLD, fontSize));
-        menu.setForeground(Color.WHITE);
+        menu.setForeground(Color.BLACK);
         return menu;
     }
     
@@ -78,7 +78,7 @@ public class Home extends JFrame implements ActionListener {
         menuItem.setFont(new Font("Arial", Font.PLAIN, 14));
         menuItem.setToolTipText(tooltip);
         menuItem.addActionListener(this);
-        menuItem.setBackground(Color.WHITE);
+        menuItem.setBackground(Color.BLACK);
         menu.add(menuItem);
         return menuItem;
     }

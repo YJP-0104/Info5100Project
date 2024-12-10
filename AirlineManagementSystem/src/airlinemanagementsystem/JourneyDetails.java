@@ -9,7 +9,7 @@ import java.sql.*;
 public class JourneyDetails extends JFrame {
     private static final String DB_URL = "jdbc:mysql://localhost:3306/airlinemanagementsystem";
     private static final String DB_USER = "root";
-    private static final String DB_PASSWORD = "yash";
+    private static final String DB_PASSWORD = "my-secret-pw";
     
     private JTextField pnrTextField;
     private JTable journeyTable;
@@ -60,7 +60,7 @@ public class JourneyDetails extends JFrame {
         journeyTable.setRowHeight(25);
         journeyTable.getTableHeader().setFont(new Font("Arial", Font.BOLD, 12));
         journeyTable.getTableHeader().setBackground(new Color(51, 51, 51));
-        journeyTable.getTableHeader().setForeground(Color.WHITE);
+        journeyTable.getTableHeader().setForeground(Color.BLACK);
     }
     
     private JButton createStyledButton(String text, Color backgroundColor) {

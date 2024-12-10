@@ -22,9 +22,9 @@ public class Conn {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             // Replace `127.0.0.1` with the Docker network host if needed
-            String url = "jdbc:mysql://localhost:3306/airlinemanagementsystem"; // Change `localhost` if necessary
+            String url = "jdbc:mysql://localhost:3306/airlinemanagementsystem?useSSL=false"; // Change `localhost` if necessary
             String user = "root"; // Replace with your MySQL username
-            String password = "yash"; // Replace with your MySQL password
+            String password = "my-secret-pw"; // Replace with your MySQL password
 
             // Establish the connection
             c = DriverManager.getConnection(url, user, password);
