@@ -29,7 +29,7 @@ public class BookFlight extends JFrame implements ActionListener {
         heading.setForeground(Color.BLUE);
         add(heading);
 
-        // Aadhar field
+        // Identification field
         JLabel idLabel = new JLabel("ID");
         idLabel.setBounds(60, 80, 150, 25);
         idLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
