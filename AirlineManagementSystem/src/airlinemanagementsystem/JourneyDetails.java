@@ -35,7 +35,7 @@ public class JourneyDetails extends JFrame {
         searchPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 5));
         searchPanel.setBackground(new Color(240, 240, 240));
         
-        // Create and style components
+
         JLabel titleLabel = new JLabel("Journey Information Search");
         titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
         titleLabel.setForeground(new Color(51, 51, 51));
@@ -205,9 +205,9 @@ public class JourneyDetails extends JFrame {
     }
     
     private void finalizeFrame() {
-        setSize(1000, 600);
+        setSize(1100, 700);
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE);
     }
     
     public static void main(String[] args) {

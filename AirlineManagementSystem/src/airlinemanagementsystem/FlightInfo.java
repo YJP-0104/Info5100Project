@@ -9,6 +9,7 @@ import java.sql.*;
 public class FlightInfo extends JFrame {
     private static final String DB_URL = "jdbc:mysql://localhost:3306/airlinemanagementsystem?useSSL=false";
     private static final String DB_USER = "root";
+//    private static final String DB_PASSWORD = "harsh11";
 //    private static final String DB_PASSWORD = "yash";
     private static final String DB_PASSWORD = "my-secret-pw";
 

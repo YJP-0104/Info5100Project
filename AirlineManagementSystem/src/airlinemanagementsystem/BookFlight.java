@@ -93,7 +93,7 @@ public class BookFlight extends JFrame implements ActionListener {
         bookFlightButton.addActionListener(this);
         add(bookFlightButton);
 
-        // Load flight sources and destinations
+       
         loadFlightDetails();
 
         setVisible(true);

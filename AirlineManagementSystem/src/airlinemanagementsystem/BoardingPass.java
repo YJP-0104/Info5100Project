@@ -53,19 +53,19 @@ public class BoardingPass extends JFrame implements ActionListener {
 
         fetchButton = new JButton("Fetch");
         fetchButton.setBounds(450, 150, 100, 25);
-        fetchButton.setBackground(new Color(34, 139, 34)); // Green
+        fetchButton.setBackground(new Color(34, 139, 34)); //  Green
         fetchButton.setForeground(Color.BLUE);
         fetchButton.addActionListener(this);
         add(fetchButton);
 
         clearButton = new JButton("Clear");
         clearButton.setBounds(570, 150, 100, 25);
-        clearButton.setBackground(new Color(220, 20, 60)); // Red
+        clearButton.setBackground(new Color(220, 20, 60)); //  Red
         clearButton.setForeground(Color.BLUE);
         clearButton.addActionListener(this);
         add(clearButton);
 
-        // Passenger Details
+        //  Passenger Details
         JLabel nameLabelHeading = new JLabel("Name:");
         nameLabelHeading.setBounds(60, 180, 150, 25);
         nameLabelHeading.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -137,7 +137,6 @@ public class BoardingPass extends JFrame implements ActionListener {
         flightDateLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
         add(flightDateLabel);
 
-        // Frame settings
         setTitle("Boarding Pass");
         setSize(1000, 600);
         setLocation(300, 150);
