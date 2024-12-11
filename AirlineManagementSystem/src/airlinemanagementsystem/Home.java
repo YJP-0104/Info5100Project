@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Home extends JFrame implements ActionListener {
-    private static final String AIRLINE_NAME = "CANADA AIR";
+    private static final String AIRLINE_NAME = "AIR CANADA";
     private static final String APP_TITLE = "Airline Management System";
     private static final Color PRIMARY_COLOR = new Color(0, 102, 204);
     private static final Color SECONDARY_COLOR = new Color(51, 51, 51);
@@ -47,9 +47,9 @@ public class Home extends JFrame implements ActionListener {
     
     private void createImage() {
         // Load the image
-        ImageIcon imageIcon = new ImageIcon("E:\\NEU LABS\\Info5100\\Project\\info5100Project\\AirlineManagementSystem\\src\\airlinemanagementsystem\\logo.jpg"); // Replace with your image path
+        ImageIcon imageIcon = new ImageIcon("E:\\NEU LABS\\Info5100\\Project\\info5100Project\\AirlineManagementSystem\\src\\airlinemanagementsystem\\Air_Canada_Logo1.png"); // Replace with your image path
         imageLabel = new JLabel(imageIcon);
-        imageLabel.setBounds(400, 150, imageIcon.getIconWidth(), imageIcon.getIconHeight()); // Adjust position and size
+        imageLabel.setBounds(600, 250, imageIcon.getIconWidth(), imageIcon.getIconHeight()); // Adjust position and size
         mainPanel.add(imageLabel);
     }
     
