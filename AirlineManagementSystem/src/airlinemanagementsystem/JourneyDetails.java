@@ -205,9 +205,9 @@ public class JourneyDetails extends JFrame {
     }
     
     private void finalizeFrame() {
-        setSize(1100, 700);
+        setSize(1000, 600);
         setLocationRelativeTo(null);
-        setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
     
     public static void main(String[] args) {
