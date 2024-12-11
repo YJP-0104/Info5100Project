@@ -4,13 +4,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
+import java.util.Optional;
 
 /**
  * BoardingPass - A UI for displaying passenger boarding pass details.
- * 
+ *
  * @author yashpatel
  */
 public class BoardingPass extends JFrame implements ActionListener {
+
     JTextField pnrTextField;
     JLabel nameLabel, nationalityLabel, srcLabel, destLabel, flightNameLabel, flightCodeLabel, flightDateLabel;
     JButton fetchButton, clearButton;
@@ -21,7 +23,7 @@ public class BoardingPass extends JFrame implements ActionListener {
         setLayout(null);
 
         // Heading
-        JLabel heading = new JLabel("INDI AIRLINES");
+        JLabel heading = new JLabel("EMIRATES AIRLINES");
         heading.setBounds(350, 20, 300, 40);
         heading.setFont(new Font("Tahoma", Font.BOLD, 28));
         heading.setForeground(new Color(0, 102, 204)); // Blue
@@ -34,25 +36,30 @@ public class BoardingPass extends JFrame implements ActionListener {
         subheading.setForeground(Color.DARK_GRAY);
         add(subheading);
 
+        ImageIcon icon = new ImageIcon("E:\\NEU LABS\\Info5100\\Project\\info5100Project\\AirlineManagementSystem\\src\\airlinemanagementsystem\\boarding_pass.png"); // Replace with your icon file path
+        JLabel iconLabel = new JLabel(icon);
+        iconLabel.setBounds(400, 96, 50, 50); // Adjust the bounds to position the icon below the subheading
+        add(iconLabel);
+
         // PNR Input
         JLabel pnrLabel = new JLabel("PNR:");
-        pnrLabel.setBounds(60, 120, 150, 25);
-        pnrLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        pnrLabel.setBounds(60, 150, 150, 25);
+        pnrLabel.setFont(new Font("Arial", Font.PLAIN, 16));
         add(pnrLabel);
 
         pnrTextField = new JTextField();
-        pnrTextField.setBounds(220, 120, 200, 25);
+        pnrTextField.setBounds(220, 150, 200, 25);
         add(pnrTextField);
 
         fetchButton = new JButton("Fetch");
-        fetchButton.setBounds(450, 120, 100, 25);
+        fetchButton.setBounds(450, 150, 100, 25);
         fetchButton.setBackground(new Color(34, 139, 34)); // Green
         fetchButton.setForeground(Color.BLUE);
         fetchButton.addActionListener(this);
         add(fetchButton);
 
         clearButton = new JButton("Clear");
-        clearButton.setBounds(570, 120, 100, 25);
+        clearButton.setBounds(570, 150, 100, 25);
         clearButton.setBackground(new Color(220, 20, 60)); // Red
         clearButton.setForeground(Color.BLUE);
         clearButton.addActionListener(this);
@@ -129,12 +136,6 @@ public class BoardingPass extends JFrame implements ActionListener {
         flightDateLabel.setBounds(220, 420, 200, 25);
         flightDateLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
         add(flightDateLabel);
-
-        // Optional Background Image
-//        ImageIcon backgroundIcon = new ImageIcon(ClassLoader.getSystemResource("airlinemanagementsystem/icons/boardingpass.png"));
-//        JLabel background = new JLabel(backgroundIcon);
-//        background.setBounds(550, 200, 400, 200);
-//        add(background);
 
         // Frame settings
         setTitle("Boarding Pass");
