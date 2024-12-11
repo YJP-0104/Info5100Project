@@ -1,5 +1,4 @@
 package airlinemanagementsystem;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -12,13 +11,14 @@ public class Home extends JFrame implements ActionListener {
     
     private JPanel mainPanel;
     private JLabel welcomeLabel;
+    private JLabel imageLabel; // New label for the image
     private JMenuBar navigationBar;
     
     public Home() {
         initializeFrame();
         setupMainPanel();
         createHeader();
-        createImageCenter(); // Add this line
+        createImage(); // Add this method call to load the image
         createNavigationMenu();
         createFooter();
         finalizeFrame();
@@ -43,6 +43,14 @@ public class Home extends JFrame implements ActionListener {
         welcomeLabel.setFont(new Font("Montserrat", Font.BOLD, 36));
         welcomeLabel.setHorizontalAlignment(SwingConstants.CENTER);
         mainPanel.add(welcomeLabel);
+    }
+    
+    private void createImage() {
+        // Load the image
+        ImageIcon imageIcon = new ImageIcon("E:\\NEU LABS\\Info5100\\Project\\info5100Project\\AirlineManagementSystem\\src\\airlinemanagementsystem\\logo.jpg"); // Replace with your image path
+        imageLabel = new JLabel(imageIcon);
+        imageLabel.setBounds(400, 150, imageIcon.getIconWidth(), imageIcon.getIconHeight()); // Adjust position and size
+        mainPanel.add(imageLabel);
     }
     
     private void createNavigationMenu() {
@@ -170,33 +178,4 @@ public class Home extends JFrame implements ActionListener {
             e.printStackTrace();
         }
     }
-    
-    private void createImageCenter() {
-    // Load the image
-    ImageIcon icon = new ImageIcon("E:\\\\NEU LABS\\\\Info5100\\\\Project\\\\info5100Project\\\\AirlineManagementSystem\\\\src\\\\airlinemanagementsystem\\\\logo.jpg"); // Replace with the actual path to your image
-    
-    int newWidth = 400;  // Desired width
-    int newHeight = 300; // Desired height
-    Image scaledImage = icon.getImage().getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);
-    ImageIcon resizedIcon = new ImageIcon(scaledImage);
-
-    // Add the resized image to a JLabel
-    JLabel imageLabel = new JLabel(resizedIcon);
-
-    // Center the image in the panel
-    imageLabel.setBounds(
-        (mainPanel.getWidth() - newWidth) / 2,
-        (mainPanel.getHeight() - newHeight) / 2,
-        newWidth,
-        newHeight
-    );
-    imageLabel.setHorizontalAlignment(SwingConstants.CENTER);
-
-    // Add to the main panel
-    mainPanel.add(imageLabel);
-
-    // Repaint the panel to reflect changes
-    mainPanel.repaint();
-}
-
 }
