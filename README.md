@@ -1,2 +1,7 @@
 # info5100Project
-# This is for testing
+# 
+# Project Contributers
+# Yash Patel
+# Nisarg Patel
+# Harsh Shah
+# Niralee Hirpara
